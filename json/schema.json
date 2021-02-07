@@ -1,0 +1,107 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "NGSL with EJDict",
+    "description": "NGSLにEJDictの訳をつけたもの",
+    "default": {},
+    "examples": [
+        {
+            "words": {
+                "forms": [
+                    "size"
+                ],
+                "means": [
+                    "大きさ",
+                    "数量"
+                ]
+            }
+        }
+    ],
+    "properties": {
+        "word": {
+            "$id": "#/properties/word",
+            "type": "object",
+            "title": "単語",
+            "description": "キーを単語原型にしたもの",
+            "default": {},
+            "examples": [
+                {
+                    "forms": [
+                        "size"
+                    ],
+                    "means": [
+                        "大きさ",
+                        "数量"
+                    ]
+                }
+            ],
+            "required": [
+                "forms",
+                "means"
+            ],
+            "properties": {
+                "forms": {
+                    "$id": "#/properties/the/properties/forms",
+                    "type": "array",
+                    "title": "The forms schema",
+                    "description": "複数形、過去形などの別の形",
+                    "default": [],
+                    "examples": [
+                        [
+                            "size"
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/the/properties/forms/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/the/properties/forms/items/anyOf/0",
+                                "type": "string",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "size"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "means": {
+                    "$id": "#/properties/the/properties/means",
+                    "type": "array",
+                    "title": "意味",
+                    "description": "意味",
+                    "default": [],
+                    "examples": [
+                        [
+                            "大きさ",
+                            "数量"
+                        ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                        "$id": "#/properties/the/properties/means/items",
+                        "anyOf": [
+                            {
+                                "$id": "#/properties/the/properties/means/items/anyOf/0",
+                                "type": "string",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "大きさ",
+                                    "数量"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
